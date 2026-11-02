@@ -129,22 +129,25 @@ button {
   border-radius: 4px;
 }
 
+.todo-item .mark-done,
 .todo-item .delete {
-  border: none;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
   background: none;
+  font-size: 0.85rem;
   color: var(--muted);
-  font-size: 1.2rem;
-  line-height: 1;
-  opacity: 0;
-  transition: opacity 0.15s;
 }
 
-.todo-item:hover .delete,
-.todo-item .delete:focus {
-  opacity: 1;
+.todo-item .mark-done:hover,
+.todo-item .mark-done:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-.todo-item .delete:hover {
+.todo-item .delete:hover,
+.todo-item .delete:focus-visible {
+  border-color: var(--danger);
   color: var(--danger);
 }
 

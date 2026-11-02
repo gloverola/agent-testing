@@ -54,13 +54,22 @@
       text.textContent = todo.text;
       text.title = "Double-click to edit";
 
+      const doneBtn = document.createElement("button");
+      doneBtn.type = "button";
+      doneBtn.className = "mark-done";
+      doneBtn.textContent = todo.done ? "Undo" : "Done";
+      doneBtn.setAttribute(
+        "aria-label",
+        todo.done ? `Mark "${todo.text}" as not done` : `Mark "${todo.text}" as done`
+      );
+
       const del = document.createElement("button");
       del.type = "button";
       del.className = "delete";
-      del.textContent = "×";
-      del.setAttribute("aria-label", "Delete todo");
+      del.textContent = "Delete";
+      del.setAttribute("aria-label", `Delete "${todo.text}"`);
 
-      li.append(checkbox, text, del);
+      li.append(checkbox, text, doneBtn, del);
       list.append(li);
     }
 
@@ -136,11 +145,15 @@
   });
 
   list.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("delete")) return;
     const todo = findTodo(e.target);
     if (!todo) return;
-    todos = todos.filter((t) => t !== todo);
-    update();
+    if (e.target.classList.contains("mark-done")) {
+      todo.done = !todo.done;
+      update();
+    } else if (e.target.classList.contains("delete")) {
+      todos = todos.filter((t) => t !== todo);
+      update();
+    }
   });
 
   list.addEventListener("dblclick", (e) => {
