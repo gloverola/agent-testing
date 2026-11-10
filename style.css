@@ -59,6 +59,15 @@ button {
   border-radius: 8px;
 }
 
+.todo-form .icon-select {
+  padding: 0.6rem 0.4rem;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.todo-form .icon-select:focus,
 .todo-form input:focus {
   outline: 2px solid var(--accent);
   outline-offset: -1px;

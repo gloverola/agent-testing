@@ -3,6 +3,8 @@
 
   const form = document.getElementById("todo-form");
   const input = document.getElementById("todo-input");
+  const iconSelect = document.getElementById("todo-icon");
+  const DEFAULT_ICON = iconSelect.value;
   const list = document.getElementById("todo-list");
   const empty = document.getElementById("empty");
   const count = document.getElementById("count");
@@ -131,8 +133,9 @@
     e.preventDefault();
     const text = input.value.trim();
     if (!text) return;
-    todos.push({ id: makeId(), text, done: false });
+    todos.push({ id: makeId(), text, icon: iconSelect.value, done: false });
     input.value = "";
+    iconSelect.value = DEFAULT_ICON;
     update();
   });
 
