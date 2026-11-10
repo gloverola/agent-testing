@@ -11,6 +11,15 @@
     <h1>Todo</h1>
 
     <form id="todo-form" class="todo-form" autocomplete="off">
+      <label for="todo-icon" class="visually-hidden">Icon</label>
+      <select id="todo-icon" class="icon-select">
+        <option value="📝" selected>📝 Note</option>
+        <option value="🛒">🛒 Shopping</option>
+        <option value="💼">💼 Work</option>
+        <option value="🏠">🏠 Home</option>
+        <option value="💪">💪 Health</option>
+        <option value="📞">📞 Call</option>
+      </select>
       <label for="todo-input" class="visually-hidden">New todo</label>
       <input id="todo-input" type="text" placeholder="What needs doing?" maxlength="200" required />
       <button type="submit">Add</button>
