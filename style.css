@@ -175,6 +175,11 @@ button {
   color: var(--muted);
 }
 
+.footer-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
 .footer button {
   border: none;
   background: none;

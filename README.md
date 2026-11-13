@@ -9,4 +9,5 @@ A small todo app in plain HTML, CSS and JavaScript. Open `index.html` in a brows
 - Mark a todo as done with its checkbox or the **Done** button (**Undo** reverts it)
 - Remove a todo with its **Delete** button
 - Filter by All / Active / Completed, clear completed
+- Remove every todo at once with **Clear all** (asks for confirmation first)
 - Todos are saved in `localStorage`
