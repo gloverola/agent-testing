@@ -9,6 +9,7 @@
   const empty = document.getElementById("empty");
   const count = document.getElementById("count");
   const clearBtn = document.getElementById("clear-completed");
+  const clearAllBtn = document.getElementById("clear-all");
   const filterBtns = document.querySelectorAll("[data-filter]");
 
   let todos = load();
@@ -79,6 +80,7 @@
     count.textContent = `${remaining} item${remaining === 1 ? "" : "s"} left`;
     empty.hidden = visibleTodos().length > 0;
     clearBtn.hidden = !todos.some((t) => t.done);
+    clearAllBtn.hidden = todos.length === 0;
 
     filterBtns.forEach((btn) => {
       const isActive = btn.dataset.filter === filter;
@@ -167,6 +169,13 @@
 
   clearBtn.addEventListener("click", () => {
     todos = todos.filter((t) => !t.done);
+    update();
+  });
+
+  clearAllBtn.addEventListener("click", () => {
+    const n = todos.length;
+    if (!confirm(`Delete all ${n} todo${n === 1 ? "" : "s"}? This can't be undone.`)) return;
+    todos = [];
     update();
   });
 
